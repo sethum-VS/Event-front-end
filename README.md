@@ -1,50 +1,36 @@
-# React + TypeScript + Vite
+# Ticket Simulation System - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend application for the Ticket Simulation System, designed to monitor real-time ticket processing and distribution. The app provides an intuitive user interface for starting simulations and viewing ticket release and retrieval logs in real time
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+Simulation Parameters: Input fields to configure:
+-Max Ticket Capacity
+-Total Tickets
+-Ticket Release Rate (in milliseconds)
+-Customer Retrieval Rate (in milliseconds)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Real-Time Logs: Dynamic log panel displays:
+-Ticket releases by vendors.
+-Ticket purchases by customers.
 
-- Configure the top-level `parserOptions` property like this:
 
+Setup:
+-Clone the repository.
+-Install dependencies:
 ```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+  npm install
+```
+Start the development server:
+```js
+  npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Ensure the backend (Spring Boot) is running and accessible at http://localhost:8080.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## How It Works:
+-Enter simulation parameters in the input panel and click Start Simulation.
+-The simulation ends automatically when the defined conditions are met. Logs can also be viewed in the backend database for reference.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+This project aims to provide a seamless and interactive way to manage and monitor real-time ticket simulation processes.
